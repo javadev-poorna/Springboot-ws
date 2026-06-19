@@ -21,9 +21,11 @@ public class TestController {
 
     @GetMapping("/message")
     public String getMessage() {
-        System.out.println("Current welcome message: " + env.getProperty("test.message"));
-        System.out.println("Current welcome message from TestConfig: " + testConfig.getReload());
-        System.out.println("Current welcome message from TestConfig: " + testConfig.getReload2());
-        return message;
+    	System.out.println("TestController - message endpoint called");
+        System.out.println("Current welcome message from Env: " + env.getProperty("test.message"));
+        System.out.println("Current welcome message from TestConfig reload: " + testConfig.getReload());
+        System.out.println("Current welcome message from TestConfig reload2: " + testConfig.getReload2());
+        System.out.println("Current welcome message from TestController message @Value: " + message);
+        return env.getProperty("test.message");
     }
 }
