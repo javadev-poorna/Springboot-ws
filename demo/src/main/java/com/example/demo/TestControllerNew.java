@@ -19,11 +19,13 @@ public class TestControllerNew {
     @Autowired
     private TestConfig testConfig;
 
-    @GetMapping("/message-new")
+   @GetMapping("/message-new")
     public String getMessage() {
-        System.out.println("Current welcome message: " + env.getProperty("test.message"));
-        System.out.println("Current welcome message from TestConfig: " + testConfig.getReload());
-        System.out.println("Current welcome message from TestConfig: " + testConfig.getReload2());
-        return message;
+    	System.out.println("TestController - messagenew endpoint called");
+    	  System.out.println("Current welcome message from Env: " + env.getProperty("test.message"));
+          System.out.println("Current welcome message from TestConfig reload: " + testConfig.getReload());
+          System.out.println("Current welcome message from TestConfig reload2: " + testConfig.getReload2());
+          System.out.println("Current welcome message from TestController message @Value: " + message);
+        return env.getProperty("test.message");
     }
 }
